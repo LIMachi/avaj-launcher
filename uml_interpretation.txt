@@ -1,0 +1,9 @@
+List of errors in the uml:
+- Aircraft uses the "implements" arrow notation to Flyable (which is described as an abstract class, not an interface)
+- Aircraft does not declare a "updateConditions" method (required since it is declared as abstract in Flyable, and Aircraft is not marked as abstract itself)
+- Helicopter, JetPlan and Baloon all declare the methods "updateConditions" as if they where extending Flyable directly (see Aircraft error above)
+- String are lower case and missing * when used as parameter (IMO, Strings should use the same notation as any object)
+
+Possible of solutions:
+- Make Aircraft abstract (solves errors 2 and 3, minimal uml change) (I will chose this solution)
+- Make flyable an interface and implement it on Helicopter, JetPlan and Baloon (solves errors 1, 2 and 3, but changes the uml layout)
