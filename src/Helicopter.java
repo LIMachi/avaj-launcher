@@ -4,7 +4,25 @@ public class Helicopter extends Aircraft {
     }
 
     @Override
-    public void updateConditions() {
-
+    public void updateConditions() throws AvajLauncherException {
+        switch (weatherTower.getWeather(coordinates)) {
+            case "SUN" -> {
+                Main.println(this + ": This is hot.");
+                coordinates.deltaLongitude(10);
+                coordinates.deltaHeight(2);
+            }
+            case "RAIN" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaLongitude(5);
+            }
+            case "FOG" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaLongitude(1);
+            }
+            case "SNOW" -> {
+                Main.println(this + ": My rotor is going to freeze!");
+                coordinates.deltaHeight(-12);
+            }
+        }
     }
 }

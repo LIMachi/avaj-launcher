@@ -13,7 +13,8 @@ public class Tower {
         observers.remove(p_flyable);
     }
 
-    protected void conditionChanged() {
-
+    protected void conditionChanged() throws AvajLauncherException {
+        for (Flyable observer : observers)
+            observer.updateConditions();
     }
 }

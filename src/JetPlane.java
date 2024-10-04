@@ -4,7 +4,25 @@ public class JetPlane extends Aircraft {
     }
 
     @Override
-    public void updateConditions() {
-
+    public void updateConditions() throws AvajLauncherException {
+        switch (weatherTower.getWeather(coordinates)) {
+            case "SUN" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaLatitude(10);
+                coordinates.deltaHeight(2);
+            }
+            case "RAIN" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaLatitude(5);
+            }
+            case "FOG" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaLatitude(1);
+            }
+            case "SNOW" -> {
+                Main.println(this + ": TBD");
+                coordinates.deltaHeight(-7);
+            }
+        }
     }
 }

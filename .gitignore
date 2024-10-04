@@ -2,5 +2,7 @@
 /avaj-launcher.iml
 /sources.txt
 /build
+/out
 *.pdf
 TODO.txt
+/simulation.txt
