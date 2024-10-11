@@ -1,14 +1,15 @@
 MAIN = Main
 
 SRCS = $(shell find src -name "*.java")
+CLS = $(SRCS:src/%.java=build/%.class)
 .PHONY: all, clean, run
 
 run: all
 	java -cp build Main scenario.txt
 
-all: build/${MAIN}.class
+all: ${CLS}
 
-build/${MAIN}.class: sources.txt
+${CLS}: sources.txt
 	javac -d build @sources.txt
 
 sources.txt: ${SRCS}
